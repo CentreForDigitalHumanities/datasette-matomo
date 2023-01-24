@@ -18,6 +18,7 @@ setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     author="UUDigitalHumanitiesLab",
+    author_email="digitalhumanities@uu.nl",
     url="https://github.com/UUDigitalHumanitieslab/datasette-matomo",
     project_urls={
         "Issues": "https://github.com/UUDigitalHumanitieslab/datasette-matomo/issues",
