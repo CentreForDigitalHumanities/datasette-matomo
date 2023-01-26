@@ -18,3 +18,11 @@ async def test_plugin_is_configured(monkeypatch):
     datasette = Datasette(memory=True)
     response = await datasette.client.get("/")
     assert '<script src="/-/matomo-tracking.js"' in response.text
+
+
+@pytest.mark.asyncio
+async def test_plugin_is_not_configured(monkeypatch):
+    # Without environment variables
+    datasette = Datasette(memory=True)
+    response = await datasette.client.get("/")
+    assert '<script src="/-/matomo-tracking.js"' not in response.text
