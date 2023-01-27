@@ -5,7 +5,7 @@
 [![Tests](https://github.com/UUDigitalHumanitieslab/datasette-matomo/workflows/Test/badge.svg)](https://github.com/UUDigitalHumanitieslab/datasette-matomo/actions?query=workflow%3ATest)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/UUDigitalHumanitieslab/datasette-matomo/blob/main/LICENSE)
 
-Add Matomo Web Analytics tracking code to Datasette
+Add Matomo Web Analytics tracking code to Datasette.
 
 ## Installation
 
@@ -15,7 +15,12 @@ Install this plugin in the same environment as Datasette.
 
 ## Usage
 
-Usage instructions go here.
+Make your configuration available to the Datasette process as environment variables:
+
+    DATASETTE_MATOMO_SERVER_URL=https://example.com/
+    DATASETTE_MATOMO_SITE_ID=1
+
+The server URL must include the final slash.
 
 ## Development
 
