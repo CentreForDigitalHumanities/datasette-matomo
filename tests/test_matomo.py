@@ -13,11 +13,15 @@ async def test_plugin_is_installed():
 
 @pytest.mark.asyncio
 async def test_plugin_is_configured(monkeypatch):
-    monkeypatch.setenv("MATOMO_SERVER_URL", "https://example.com/")
-    monkeypatch.setenv("MATOMO_SITE_ID", "1")
+    matomo_server_url = "https://example.com/"
+    matomo_site_id = "1"
+    monkeypatch.setenv("MATOMO_SERVER_URL", matomo_server_url)
+    monkeypatch.setenv("MATOMO_SITE_ID", matomo_site_id)
     datasette = Datasette(memory=True)
     response = await datasette.client.get("/")
     assert '<script src="/-/matomo-tracking.js"' in response.text
+    response = await datasette.client.get("/-/matomo-tracking.js")
+    assert response.status_code == 200
 
 
 @pytest.mark.asyncio
