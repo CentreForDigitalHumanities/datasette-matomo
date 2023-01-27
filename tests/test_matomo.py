@@ -15,8 +15,8 @@ async def test_plugin_is_installed():
 async def test_plugin_is_configured(monkeypatch):
     matomo_server_url = "https://example.com/"
     matomo_site_id = "1"
-    monkeypatch.setenv("MATOMO_SERVER_URL", matomo_server_url)
-    monkeypatch.setenv("MATOMO_SITE_ID", matomo_site_id)
+    monkeypatch.setenv("DATASETTE_MATOMO_SERVER_URL", matomo_server_url)
+    monkeypatch.setenv("DATASETTE_MATOMO_SITE_ID", matomo_site_id)
     datasette = Datasette(memory=True)
     response = await datasette.client.get("/")
     assert '<script src="/-/matomo-tracking.js"' in response.text

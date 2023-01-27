@@ -9,12 +9,12 @@ def get_extra_js():
     # NOTE: storing the env variables and extra_js list in global variables does not work
     # Using startup() hookimpl does not seem to help either.
     extra_js = []
-    ds_matomo_server_url = os.environ.get('MATOMO_SERVER_URL', "<not set>")
-    ds_matomo_site_id = os.environ.get('MATOMO_SITE_ID', "<not set>")
+    ds_matomo_server_url = os.environ.get('DATASETTE_MATOMO_SERVER_URL', "<not set>")
+    ds_matomo_site_id = os.environ.get('DATASETTE_MATOMO_SITE_ID', "<not set>")
     if any(i in ['<not set>', ''] for i in [ds_matomo_server_url, ds_matomo_site_id]):
         print('Warning: datasette-matomo configuration not defined', file=sys.stderr)
     if ds_matomo_server_url.endswith('/') is False:
-        print('Warning: MATOMO_SERVER_URL should end with "/"', file=sys.stderr)
+        print('Warning: DATASETTE_MATOMO_SERVER_URL should end with "/"', file=sys.stderr)
     else:
         extra_js = ["/-/matomo-tracking.js"]
     return extra_js
@@ -26,17 +26,17 @@ let _paq = window._paq = window._paq || [];
 _paq.push(['trackPageView']);
 _paq.push(['enableLinkTracking']);
 (function() {
-let u="$MATOMO_SERVER_URL";
+let u="$DATASETTE_MATOMO_SERVER_URL";
 _paq.push(['setTrackerUrl', u+'matomo.php']);
-_paq.push(['setSiteId', '$MATOMO_SITE_ID']);
+_paq.push(['setSiteId', '$DATASETTE_MATOMO_SITE_ID']);
 let d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
 g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
 })();
 """)
 
 matomo_tracking_code = matomo_tracking_code_tmpl.substitute(
-    MATOMO_SERVER_URL=os.environ.get('MATOMO_SERVER_URL', "<not set>"),
-    MATOMO_SITE_ID=os.environ.get('MATOMO_SITE_ID', "<not set>"),
+    DATASETTE_MATOMO_SERVER_URL=os.environ.get('DATASETTE_MATOMO_SERVER_URL', "<not set>"),
+    DATASETTE_MATOMO_SITE_ID=os.environ.get('DATASETTE_MATOMO_SITE_ID', "<not set>"),
 )
 
 

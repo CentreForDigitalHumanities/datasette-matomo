@@ -17,8 +17,8 @@ Install this plugin in the same environment as Datasette.
 
 Make your configuration available to the Datasette process as environment variables:
 
-    MATOMO_SERVER_URL=https://example.com/
-    MATOMO_SITE_ID=1
+    DATASETTE_MATOMO_SERVER_URL=https://example.com/
+    DATASETTE_MATOMO_SITE_ID=1
 
 The server URL must include the final slash.
 
