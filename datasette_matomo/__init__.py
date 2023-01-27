@@ -1,11 +1,25 @@
 import os
 from string import Template
+import sys
 
 from datasette import hookimpl, Response
 
 
-matomo_server_url = os.environ.get('MATOMO_SERVER_URL', "<not set>")
-matomo_site_id = os.environ.get('MATOMO_SITE_ID', "<not set>")
+def get_extra_js():
+    # NOTE: storing the env variables and extra_js list in global variables does not work
+    # Using startup() hookimpl does not seem to help either.
+    extra_js = []
+    ds_matomo_server_url = os.environ.get('MATOMO_SERVER_URL', "<not set>")
+    ds_matomo_site_id = os.environ.get('MATOMO_SITE_ID', "<not set>")
+    if any(i in ['<not set>', ''] for i in [ds_matomo_server_url, ds_matomo_site_id]):
+        print('Warning: datasette-matomo configuration not defined', file=sys.stderr)
+    if ds_matomo_server_url.endswith('/') is False:
+        print('Warning: MATOMO_SERVER_URL should end with "/"', file=sys.stderr)
+    else:
+        extra_js = ["/-/matomo-tracking.js"]
+    return extra_js
+
+
 matomo_tracking_code_tmpl = Template("""
 let _paq = window._paq = window._paq || [];
 /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
@@ -21,8 +35,8 @@ g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insert
 """)
 
 matomo_tracking_code = matomo_tracking_code_tmpl.substitute(
-    MATOMO_SERVER_URL=matomo_server_url,
-    MATOMO_SITE_ID=matomo_site_id,
+    MATOMO_SERVER_URL=os.environ.get('MATOMO_SERVER_URL', "<not set>"),
+    MATOMO_SITE_ID=os.environ.get('MATOMO_SITE_ID', "<not set>"),
 )
 
 
@@ -41,4 +55,4 @@ def register_routes():
 
 @hookimpl
 def extra_js_urls():
-    return ["/-/matomo-tracking.js"]
+    return get_extra_js()
