@@ -5,7 +5,7 @@
 [![Tests](https://github.com/UUDigitalHumanitieslab/datasette-matomo/workflows/Test/badge.svg)](https://github.com/UUDigitalHumanitieslab/datasette-matomo/actions?query=workflow%3ATest)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/UUDigitalHumanitieslab/datasette-matomo/blob/main/LICENSE)
 
-Add Matomo Web Analytics tracking code to Datasette.
+Add Matomo Web Analytics JavaScript tracking code to Datasette.
 
 ## Installation
 
@@ -20,7 +20,15 @@ Make your configuration available to the Datasette process as environment variab
     DATASETTE_MATOMO_SERVER_URL=https://example.com/
     DATASETTE_MATOMO_SITE_ID=1
 
-The server URL must include the final slash.
+The server URL must include a final slash.
+
+If you use `datasette publish`:
+
+    datasette publish heroku example.db --install datasette-matomo \
+        --plugin-secret datasette-matomo server_url http://example.com/ \
+        --plugin-secret datasette-matomo site_id 1
+
+Note: not all `datasette publish` providers currently support the `--plugin-secret` option.
 
 ## Development
 
