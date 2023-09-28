@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
 
-VERSION = "0.1.0"
+VERSION = "0.1.1"
 
 
 def get_long_description():
@@ -17,13 +17,13 @@ setup(
     description="Add Matomo Web Analytics tracking code to Datasette",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
-    author="UUDigitalHumanitiesLab",
+    author="CentreForDigitalHumanities",
     author_email="digitalhumanities@uu.nl",
-    url="https://github.com/UUDigitalHumanitieslab/datasette-matomo",
+    url="https://github.com/CentreForDigitalHumanities/datasette-matomo",
     project_urls={
-        "Issues": "https://github.com/UUDigitalHumanitieslab/datasette-matomo/issues",
-        "CI": "https://github.com/UUDigitalHumanitieslab/datasette-matomo/actions",
-        "Changelog": "https://github.com/UUDigitalHumanitieslab/datasette-matomo/releases",
+        "Issues": "https://github.com/CentreForDigitalHumanities/datasette-matomo/issues",
+        "CI": "https://github.com/CentreForDigitalHumanities/datasette-matomo/actions",
+        "Changelog": "https://github.com/CentreForDigitalHumanities/datasette-matomo/releases",
     },
     license="Apache License, Version 2.0",
     classifiers=[
