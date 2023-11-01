@@ -1,0 +1,31 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: datasette-matomo
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - name: >-
+      Research Software Lab, Centre for Digital Humanities,
+      Utrecht University
+    website: >-
+      https://cdh.uu.nl/centre-for-digital-humanities/research-software-lab/
+    city: Utrecht
+    country: NL
+repository-code: >-
+  https://github.com/CentreForDigitalHumanities/datasette-matomo
+repository-artifact: 'https://pypi.org/project/datasette-matomo/'
+abstract: >-
+  Datasette plugin that adds Matomo Web Analytics JavaScript
+  tracking code to your app.
+keywords:
+  - Datasette
+  - Matomo
+  - web-analytics
+license: Apache-2.0
+commit: 2d142c68f52316246cc35bc2c14307b4880b9a06
+version: 0.1.1
+date-released: '2023-09-28'
