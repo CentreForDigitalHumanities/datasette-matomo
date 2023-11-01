@@ -5,7 +5,7 @@
 [![Tests](https://github.com/UUDigitalHumanitieslab/datasette-matomo/workflows/Test/badge.svg)](https://github.com/UUDigitalHumanitieslab/datasette-matomo/actions?query=workflow%3ATest)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/UUDigitalHumanitieslab/datasette-matomo/blob/main/LICENSE)
 
-Add Matomo Web Analytics JavaScript tracking code to Datasette.
+[Datasette plugin](https://datasette.io/) that adds [Matomo Web Analytics](https://matomo.org/) JavaScript tracking code to a Datasette application.
 
 ## Installation
 
