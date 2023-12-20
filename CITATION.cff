@@ -15,6 +15,9 @@ authors:
       https://cdh.uu.nl/centre-for-digital-humanities/research-software-lab/
     city: Utrecht
     country: NL
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.10412184
 repository-code: >-
   https://github.com/CentreForDigitalHumanities/datasette-matomo
 repository-artifact: 'https://pypi.org/project/datasette-matomo/'
@@ -26,6 +29,6 @@ keywords:
   - Matomo
   - web-analytics
 license: Apache-2.0
-commit: 2d142c68f52316246cc35bc2c14307b4880b9a06
-version: 0.1.1
-date-released: '2023-09-28'
+commit: 3acab45bf09b9d31b2233d1aed0a5adc6a6e98c9
+version: 0.1.2
+date-released: '2023-12-20'
